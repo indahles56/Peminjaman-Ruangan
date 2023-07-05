@@ -1,0 +1,212 @@
+ERROR - 2023-07-04 14:14:10 --> mysqli_sql_exception: Table 'peminjaman' already exists in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `p...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `p...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `p...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `p...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134411_CreatePeminjamanTable.php(50): CodeIgniter\Database\Forge->createTable('peminjaman')
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-07-04 14:15:01 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''user') REFERENCES pengguna(id) ON DELETE CASCADE ON UPDATE CASCADE' at line 1 in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE pem...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE pem...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE pem...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134411_CreatePeminjamanTable.php(52): CodeIgniter\Database\BaseConnection->query('ALTER TABLE pem...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-04 14:15:32 --> mysqli_sql_exception: Table 'peminjaman' already exists in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `p...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `p...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `p...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `p...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134411_CreatePeminjamanTable.php(50): CodeIgniter\Database\Forge->createTable('peminjaman')
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-07-04 14:16:38 --> mysqli_sql_exception: Can't create table `peminjaman_ruangan`.`peminjaman` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE pem...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE pem...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE pem...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134411_CreatePeminjamanTable.php(52): CodeIgniter\Database\BaseConnection->query('ALTER TABLE pem...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-04 14:17:16 --> mysqli_sql_exception: Can't create table `peminjaman_ruangan`.`peminjaman` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE pem...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE pem...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE pem...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134411_CreatePeminjamanTable.php(52): CodeIgniter\Database\BaseConnection->query('ALTER TABLE pem...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-04 14:17:43 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''user') REFERENCES `pengguna`('id') ON DELETE CASCADE ON UPDATE CASCADE' at line 1 in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE pem...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE pem...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE pem...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134411_CreatePeminjamanTable.php(52): CodeIgniter\Database\BaseConnection->query('ALTER TABLE pem...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-04 14:18:05 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\'user\') REFERENCES `pengguna`('id') ON DELETE CASCADE ON UPDATE CASCADE' at line 1 in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE pem...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE pem...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE pem...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134411_CreatePeminjamanTable.php(52): CodeIgniter\Database\BaseConnection->query('ALTER TABLE pem...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-04 14:18:17 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''id') ON DELETE CASCADE ON UPDATE CASCADE' at line 1 in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE pem...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE pem...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE pem...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134411_CreatePeminjamanTable.php(52): CodeIgniter\Database\BaseConnection->query('ALTER TABLE pem...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-04 14:18:33 --> mysqli_sql_exception: Can't create table `peminjaman_ruangan`.`peminjaman` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE pem...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE pem...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE pem...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134411_CreatePeminjamanTable.php(52): CodeIgniter\Database\BaseConnection->query('ALTER TABLE pem...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-04 14:29:31 --> mysqli_sql_exception: Key column 'ruangan' doesn't exist in table in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE `pe...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `pe...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `pe...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134412_CreatePeminjamanTable.php(58): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `pe...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-04 14:30:46 --> mysqli_sql_exception: Table 'peminjaman' already exists in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `p...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `p...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `p...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `p...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134412_CreatePeminjamanTable.php(55): CodeIgniter\Database\Forge->createTable('peminjaman')
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-07-04 14:30:59 --> mysqli_sql_exception: Can't create table `peminjaman_ruangan`.`peminjaman` (errno: 121 "Duplicate key on write or update") in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE `pe...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `pe...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `pe...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134412_CreatePeminjamanTable.php(57): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `pe...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-04 14:32:20 --> mysqli_sql_exception: Table 'admin' already exists in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `a...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `a...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `a...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `a...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134214_CreateAdminsTable.php(32): CodeIgniter\Database\Forge->createTable('admin')
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateAdminsTable->up()
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-07-04 14:33:27 --> mysqli_sql_exception: Duplicate key name 'fk_user_id' in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE `pe...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `pe...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `pe...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134413_CreatePeminjamanTable.php(59): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `pe...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-04 14:33:57 --> mysqli_sql_exception: Can't create table `peminjaman_ruangan`.`peminjaman` (errno: 121 "Duplicate key on write or update") in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE `pe...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `pe...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `pe...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134413_CreatePeminjamanTable.php(57): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `pe...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreatePeminjamanTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-04 14:34:55 --> mysqli_sql_exception: Can't create table `peminjaman_ruangan`.`feedback` (errno: 121 "Duplicate key on write or update") in C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE `fe...', 0)
+#1 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `fe...')
+#2 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `fe...')
+#3 C:\xampp\htdocs\Peminjaman_Ruang\app\Database\Migrations\2023-07-02-134434_CreateFeedbackTable.php(30): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `fe...')
+#4 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateFeedbackTable->up()
+#5 C:\xampp\htdocs\Peminjaman_Ruang\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\Peminjaman_Ruang\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\Peminjaman_Ruang\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\Peminjaman_Ruang\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
