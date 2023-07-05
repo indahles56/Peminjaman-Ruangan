@@ -11,7 +11,7 @@ class CreateAdminsTable extends Migration
         $this->forge->addField([
             'id' => [
                 'type' => 'INT',
-                'constraint' => 5,
+                'constraint' => 11,
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
@@ -29,11 +29,11 @@ class CreateAdminsTable extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('users');
+        $this->forge->createTable('admin');
     }
 
     public function down()
     {
-        $this->forge->dropTable('users');
+        $this->forge->dropTable('admin');
     }
 }

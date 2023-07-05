@@ -56,6 +56,6 @@ class AuthController extends BaseController
         }
     }
 
-    public function register() {}
+    public function register(){}
 
 }    
