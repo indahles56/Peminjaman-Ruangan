@@ -11,7 +11,7 @@ class CreateRuanganTable extends Migration
         $this->forge->addField([
             'kode_ruang' => [
                 'type' => 'INT',
-                'constraint' => 5,
+                'constraint' => 11,
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
