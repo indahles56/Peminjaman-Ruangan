@@ -6,9 +6,8 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table = 'pengguna';
-    protected $primaryKey = 'id';
-    protected $allowedFields = ['nama', 'email', 'password', 'role'];
-
-    // Implementasikan fungsi CRUD lainnya untuk Pengguna
+    protected $table            = 'pengguna';
+    protected $primaryKey       = 'id';
+    protected $useAutoIncrement = true;
+    protected $allowedFields    = ['name', 'email', 'password'];
 }

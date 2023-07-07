@@ -7,8 +7,9 @@ use CodeIgniter\Model;
 class RuanganModel extends Model
 {
     protected $table = 'ruangan';
-    protected$primaryKey = 'id';
-    protected $allowedFields = ['nama', 'kapasitas'];
+    protected$primaryKey = 'kode_ruang';
+    protected $allowedFields = ['nama_ruang', 'kapasitas'];
+    protected $useAutoIncrement = true;
     public function getAllRuangan()
     {
         return $this->findAll();
@@ -38,3 +39,4 @@ class RuanganModel extends Model
         return $this->delete($id);
     }
 }
+
