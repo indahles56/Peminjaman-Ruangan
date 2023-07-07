@@ -1,6 +1,7 @@
 /* Main CSS styles */
 
-body {
+
+/* body {
     background-color: #f1f1f1;
     color: #000;
 }
@@ -67,4 +68,53 @@ footer {
     font-size: 14px;
     vertical-align: middle;
     margin-right: 5px;
+} */
+
+
+/* Reset default margin and padding */
+
+body,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+.nav-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.nav-menu li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.nav-menu li a:hover {
+    background-color: #555;
+}
+
+.nav-menu li.logout a {
+    background-color: #fff;
+    color: #f00;
+    border: 1px solid #f00;
+}
+
+.nav-menu li.logout a:hover {
+    background-color: #f00;
+    color: #fff;
 }
