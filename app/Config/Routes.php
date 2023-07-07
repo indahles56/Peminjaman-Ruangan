@@ -29,8 +29,19 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
 
+$routes->get('/', 'Home::index');
+$routes->get('tentang', 'Home::tentang');
+$routes->get('daftar-ruangan', 'Home::daftarRuangan');
+$routes->get('daftar-booking', 'Home::daftarBooking');
+$routes->get('profil', 'Home::profil');
+$routes->get('dashboarduser', 'DashboardUser::home');
+$routes->get('dashboarduser/tentang', 'DashboardUser::tentang');
+$routes->get('dashboarduser/daftar-ruangan', 'DashboardUser::daftarRuangan');
+$routes->get('dashboarduser/daftar-booking', 'DashboardUser::daftarBooking');
+$routes->get('dashboarduser/profil', 'DashboardUser::profil');
+$routes->get('bookinguser', 'BookingUser::index');
+$routes->post('bookinguser/booking', 'BookingUser::booking');
 
 /*
  * --------------------------------------------------------------------

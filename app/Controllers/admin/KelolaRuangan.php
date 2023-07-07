@@ -1,134 +1,81 @@
 <?php
-// File: admin/rooms.php
 
-// Verifikasi otorisasi admin di sini
-// Misalnya, periksa apakah pengguna yang masuk memiliki peran 'admin'
-// Jika tidak, arahkan ke halaman login atau halaman lain yang sesuai
+namespace App\Controllers;
 
-// Mulai sesi atau validasi token di sini (jika digunakan)
+use App\Models\RuanganModel;
 
-// Sisipkan file db.php untuk koneksi ke database
-require_once '../db.php';
-
-// Fungsi untuk mendapatkan daftar ruangan
-function getRooms()
+class KelolaRuangan extends BaseController
 {
-    global $conn;
-    $sql = "SELECT * FROM rooms";
-    $result = $conn->query($sql);
+    protected $RuanganModel;
 
-    if ($result->num_rows > 0) {
-        return $result->fetch_all(MYSQLI_ASSOC);
-    } else {
-        return [];
+    public function __construct()
+    {
+        $this->RuanganModel = new RuanganModel();
     }
-}
 
-// Fungsi untuk membuat ruangan baru
-function createRoom($name, $description)
-{
-    global $conn;
-    $name = $conn->real_escape_string($name);
-    $description = $conn->real_escape_string($description);
+    public function tambahRuang()
+    {
+        // Validasi data yang dikirim dari form
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'nama' => 'required',
+            'kapasitas' => 'required|numeric',
+        ]);
 
-    $sql = "INSERT INTO rooms (name, description) VALUES ('$name', '$description')";
-    $result = $conn->query($sql);
+        if ($validation->withRequest($this->request)->run() === FALSE) {
+            // Jika validasi gagal, tampilkan pesan error
+            return redirect()->back()->withInput()->with('error', $validation->getErrors());
+        }
 
-    if ($result) {
-        return true;
-    } else {
-        return false;
-    }
-}
+        $nama = $this->request->getPost('nama');
+        $kapasitas = $this->request->getPost('kapasitas');
 
-// Fungsi untuk mengedit ruangan
-function editRoom($id, $name, $description)
-{
-    global $conn;
-    $name = $conn->real_escape_string($name);
-    $description = $conn->real_escape_string($description);
-
-    $sql = "UPDATE rooms SET name='$name', description='$description' WHERE id='$id'";
-    $result = $conn->query($sql);
-
-    if ($result) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-// Fungsi untuk menghapus ruangan
-function deleteRoom($id)
-{
-    global $conn;
-
-    // Pastikan tidak ada peminjaman yang terkait dengan ruangan sebelum dihapus
-    $sql = "SELECT * FROM bookings WHERE room_id='$id'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        return false; // Ada peminjaman yang terkait dengan ruangan
-    } else {
-        $sql = "DELETE FROM rooms WHERE id='$id'";
-        $result = $conn->query($sql);
+        // Panggil model untuk menambah ruangan
+        $result = $this->RuanganModel->tambahRuangan($nama, $kapasitas);
 
         if ($result) {
-            return true;
+            return redirect()->to(site_url('kelolaruang'))->with('success', 'Ruangan berhasil ditambahkan.');
         } else {
-            return false;
+            return redirect()->back()->withInput()->with('error', 'Gagal menambahkan ruangan.');
+        }
+    }
+
+    public function editRuang($id)
+    {
+        // Validasi data yang dikirim dari form
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'nama' => 'required',
+            'kapasitas' => 'required|numeric',
+        ]);
+
+        if ($validation->withRequest($this->request)->run() === FALSE) {
+            // Jika validasi gagal, tampilkan pesan error
+            return redirect()->back()->withInput()->with('error', $validation->getErrors());
+        }
+
+        $nama = $this->request->getPost('nama');
+        $kapasitas = $this->request->getPost('kapasitas');
+
+        // Panggil model untuk mengedit ruangan
+        $result = $this->RuanganModel->editRuangan($id, $nama, $kapasitas);
+
+        if ($result) {
+            return redirect()->to(site_url('kelolaruang'))->with('success', 'Ruangan berhasil diperbarui.');
+        } else {
+            return redirect()->back()->withInput()->with('error', 'Gagal memperbarui ruangan.');
+        }
+    }
+
+    public function hapusRuang($id)
+    {
+        // Panggil model untuk menghapus ruangan
+        $result = $this->RuanganModel->hapusRuangan($id);
+
+        if ($result) {
+            return redirect()->to(site_url('kelolaruang'))->with('success', 'Ruangan berhasil dihapus.');
+        } else {
+            return redirect()->back()->with('error', 'Gagal menghapus ruangan.');
         }
     }
 }
-
-// Proses permintaan berdasarkan aksi yang dikirim melalui parameter GET atau POST
-$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
-
-switch ($action) {
-    case 'create':
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-
-        if (createRoom($name, $description)) {
-            // Redirect ke halaman daftar ruangan setelah berhasil membuat ruangan baru
-            header('Location: rooms.php');
-        } else {
-            // Tampilkan pesan error jika gagal membuat ruangan
-            echo "Gagal membuat ruangan.";
-        }
-        break;
-
-    case 'edit':
-        $id = $_POST['id'];
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-
-        if (editRoom($id, $name, $description)) {
-            // Redirect ke halaman daftar ruangan setelah berhasil mengedit ruangan
-            header('Location: rooms.php');
-        } else {
-            // Tampilkan pesan error jika gagal mengedit ruangan
-            echo "Gagal mengedit ruangan.";
-        }
-        break;
-
-    case 'delete':
-        $id = $_GET['id'];
-
-        if (deleteRoom($id)) {
-            // Redirect ke halaman daftar ruangan setelah berhasil menghapus ruangan
-            header('Location: rooms.php');
-        } else {
-            // Tampilkan pesan error jika gagal menghapus ruangan
-            echo "Gagal menghapus ruangan. Pastikan tidak ada peminjaman terkait.";
-        }
-        break;
-
-    default:
-        // Menampilkan halaman daftar ruangan
-        $rooms = getRooms();
-        // Tampilkan HTML dan loop melalui $rooms untuk menampilkan ruangan
-        // Anda dapat menggunakan template engine atau langsung menuliskan HTML di sini
-        break;
-}
-?>
