@@ -1,89 +1,92 @@
 <?php
-// File: user/create_booking.php
 
-// Verifikasi otorisasi pengguna di sini
-// Misalnya, periksa apakah pengguna yang masuk memiliki peran 'user'
-// Jika tidak, arahkan ke halaman login atau halaman lain yang sesuai
+namespace App\Controllers;
 
-// Mulai sesi atau validasi token di sini (jika digunakan)
+use App\Models\BookingModel;
+use App\Models\PeminjamanModel;
 
-// Sisipkan file db.php untuk koneksi ke database
-require_once '../db.php';
-
-// Fungsi untuk membuat pemesanan ruangan baru
-function createBooking($roomId, $userId, $startTime, $endTime)
+class BookingUser extends BaseController
 {
-    global $conn;
-    $roomId = $conn->real_escape_string($roomId);
-    $userId = $conn->real_escape_string($userId);
-    $startTime = $conn->real_escape_string($startTime);
-    $endTime = $conn->real_escape_string($endTime);
+    protected $bookingModel;
 
-    // Lakukan validasi waktu pemesanan di sini (misalnya, pastikan waktu mulai lebih kecil dari waktu selesai)
+    public function __construct()
+    {
+        $this->bookingModel = new PeminjamanModel();
+    }
 
-    // Lakukan validasi ketersediaan ruangan di sini (misalnya, pastikan ruangan tidak telah dipesan pada rentang waktu yang sama)
+    public function index()
+    {
+        // Get the logged in user's ID (assuming you have user authentication implemented)
+        $userId = 1; // Replace with your actual logic to get the user ID
 
-    // Lakukan validasi lainnya sesuai kebutuhan aplikasi Anda
+        // Get the bookings for the logged in user
+        $bookings = $this->bookingModel->where('user_id', $userId)->findAll();
 
-    // Simpan pemesanan ke database
-    $sql = "INSERT INTO bookings (room_id, user_id, start_time, end_time) VALUES ('$roomId', '$userId', '$startTime', '$endTime')";
-    $result = $conn->query($sql);
+        return view('booking-list', ['bookings' => $bookings]);
+    }
 
-    if ($result) {
-        return true;
-    } else {
-        return false;
+    public function create()
+    {
+        // Handle the booking creation form submission
+        // Retrieve the submitted form data
+        $userId = 1; // Replace with your actual logic to get the user ID
+        $roomId = $this->request->getPost('room_id');
+        $date = $this->request->getPost('date');
+        $startTime = $this->request->getPost('start_time');
+        $endTime = $this->request->getPost('end_time');
+
+        // Perform validation on the submitted data
+
+        // If validation fails, redirect back to the form with validation errors
+
+        // If validation succeeds, create the booking in the database
+
+        // Redirect to the booking list or show a success message
+    }
+
+    public function edit($id)
+    {
+        // Get the booking by ID
+        $booking = $this->bookingModel->find($id);
+
+        // Perform any necessary checks (e.g., ownership)
+
+        // Show the booking edit form
+        return view('booking-edit', ['booking' => $booking]);
+    }
+
+    public function update($id)
+    {
+        // Handle the booking update form submission
+        // Get the booking by ID
+        $booking = $this->bookingModel->find($id);
+
+        // Perform any necessary checks (e.g., ownership)
+
+        // Retrieve the submitted form data
+        $roomId = $this->request->getPost('room_id');
+        $date = $this->request->getPost('date');
+        $startTime = $this->request->getPost('start_time');
+        $endTime = $this->request->getPost('end_time');
+
+        // Perform validation on the submitted data
+
+        // If validation fails, redirect back to the form with validation errors
+
+        // If validation succeeds, update the booking in the database
+
+        // Redirect to the booking list or show a success message
+    }
+
+    public function delete($id)
+    {
+        // Get the booking by ID
+        $booking = $this->bookingModel->find($id);
+
+        // Perform any necessary checks (e.g., ownership)
+
+        // Delete the booking from the database
+
+        // Redirect to the booking list or show a success message
     }
 }
-
-// Proses permintaan
-// Dapatkan data pengguna yang masuk dari sesi atau token (jika digunakan)
-$loggedInUserId = 1; // Ganti dengan cara Anda mendapatkan ID pengguna yang masuk
-
-// Ambil data yang dikirimkan melalui form
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $roomId = $_POST['room_id'];
-    $startTime = $_POST['start_time'];
-    $endTime = $_POST['end_time'];
-
-    if (createBooking($roomId, $loggedInUserId, $startTime, $endTime)) {
-        // Redirect ke halaman sukses setelah berhasil membuat pemesanan
-        header('Location: success.php');
-    } else {
-        // Tampilkan pesan error jika gagal membuat pemesanan
-        echo "Gagal membuat pemesanan.";
-    }
-}
-
-// Dapatkan daftar ruangan yang tersedia (misalnya, ruangan yang belum dipesan pada rentang waktu yang diinginkan)
-// Anda dapat menambahkan fungsi atau query yang sesuai untuk mendapatkan daftar ruangan yang tersedia
-
-?>
-
-<!-- Tampilkan HTML untuk form pemesanan -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Buat Pemesanan Ruangan</title>
-</head>
-<body>
-    <h1>Buat Pemesanan Ruangan</h1>
-    <form action="create_booking.php" method="POST">
-        <label for="room_id">Ruangan:</label>
-        <select name="room_id" id="room_id">
-            <!-- Tampilkan opsi ruangan yang tersedia -->
-            <option value="1">Ruangan 1</option>
-            <option value="2">Ruangan 2</option>
-            <!-- Tambahkan opsi ruangan lainnya sesuai kebutuhan aplikasi Anda -->
-        </select>
-        <br><br>
-        <label for="start_time">Waktu Mulai:</label>
-        <input type="datetime-local" name="start_time" id="start_time">
-        <br><br>
-        <label for="end_time">Waktu Selesai:</label>
-        <input type="datetime-local" name="end_time" id="end_time">
-        <br><br>
-        <input type="submit" value="Buat Pemesanan">
-    </form>
-</body>
-</html>
