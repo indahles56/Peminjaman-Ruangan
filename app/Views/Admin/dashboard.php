@@ -1,148 +1,61 @@
-<!-- Tabel Data User [Awal] -->
-<table>
-	<tr>
-		<th>No.</th>
-		<th>Nama Lengkap</th>
-		<th>Username</th>
-		<th>Aksi</th>
-	</tr>
- 	
-	<?php $no = 1; foreach ($tb as $user): ?>
-	<tr>
-		<td align="center"><?php echo $no; ?></td>
-		<td><?php echo $user['fullname']; ?></td>
-		<td><?php echo $user['username']; ?></td>
-		<td><?php echo $user['level']; ?></td>
-		<td align="center">
-			<div class="button-edit">
-	            <a href="" data-toggle="modal" data-target="#suntinguser<?php echo $user['username']; ?>" data-backdrop="static">Sunting</a>
-	        </div>
-	        <div class="button-delete">
-	        	<a href="" data-toggle="modal" data-target="#hapususer<?php echo $user['username']; ?>" data-backdrop="static">Hapus</a>
-	        </div>
-		</td>
-	</tr>
-  	<?php $no++; endforeach; ?>
-</table>
-<!-- Tabel Data User [Akhir] -->
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Ke Peminjaman Ruangan</title>
+  <!-- AdminLTE v3 CSS -->
+  <link rel="stylesheet" href="<?= base_url('adminlte/dist/css/adminlte.min.css') ?>">
+  <!-- AdminLTE v3 JS -->
+  <script src="<?= base_url('adminlte/dist/js/adminlte.min.js') ?>"></script>
+</head>
 
-<!-- Modal Buat User [Awal] -->
-<div id="buatuser" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<!-- Konten Modal [Awal] -->
-		<div class="modal-content">
-			<div class="modal-header">
-				Buat Akun Baru
-				<button type="button" class="close" data-dismiss="modal"><span class="lnr lnr-cross-circle"></span></button>
-			</div>
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="<?= base_url('/') ?>">Peminjaman Ruangan</a>
+    </div>
 
-			<div class="modal-body">
-				<?php echo form_open('dashboard/buat-user'); ?>
-				<ul>
-					<li>
-						<div><i class="lnr lnr-text-format"></i></div><input type="text" name="fullname" placeholder="Nama lengkap" maxlength="25" required />
-					</li>
-					<li>
-						<div><i class="lnr lnr-user"></i></div><input type="text" name="username" placeholder="Nama pengguna" maxlength="10" required />
-					</li>
-					<li>
-						<div><i class="lnr lnr-lock"></i></div><input type="password" name="password" placeholder="Kata sandi" required />
-					</li>
-					<br /><hr />
-					<li>
-						<input type="submit" name="tombol_tambah" value="Tambah" />
-					</li>
-				</ul>
-				<?php echo form_close(); ?>
-			</div>
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Login Ke Peminjaman Ruangan</p>
 
-			<div class="modal-footer">
-				<span>Pastikan data telah terisi dengan benar.</span>
-			</div>
-		</div>
-		<!-- Konten Modal [Akhir] -->
-	</div>
-</div>
-<!-- Modal Buat User [Akhir] -->
+        <form action="<?= base_url('auth/login') ?>" method="post">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Username" name="username" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" name="password" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="remember">
+                <label for="remember">Ingat Saya</label>
+              </div>
+            </div>
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
+  <script src="<?= base_url('adminlte/plugins/jquery/jquery.min.js') ?>"></script>
+  <script src="<?= base_url('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+</body>
 
-<!-- Modal Perbarui Data User [Awal] -->
-<?php foreach ($tb as $user): ?>
-<div id="suntinguser<?php echo $user['username']; ?>" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<!-- Konten Modal [Awal] -->
-		<div class="modal-content">
-			<div class="modal-header">
-				Sunting Akun
-				<button type="button" class="close" data-dismiss="modal"><span class="lnr lnr-cross-circle"></span></button>
-			</div>
-
-			<div class="modal-body">
-				<?php echo form_open('dashboard/perbarui-user'); ?>
-				<ul>
-					<li>
-						<input type="hidden" name="username" value="<?php echo $user['username']; ?>">
-					</li>
-					<li>
-						<div><i class="lnr lnr-text-format"></i></div><input type="text" name="fullname" placeholder="Nama lengkap" maxlength="25" value="<?php echo $user['fullname']; ?>" required />
-					</li>
-					<li>
-						<div><i class="lnr lnr-user"></i></div><input type="text" placeholder="Nama pengguna" value="<?php echo $user['username']; ?> (tidak dapat diubah)" disabled />
-					</li>
-					<br /><hr />
-					<li>
-						<input type="submit" name="tombol_simpan" value="Simpan" />
-					</li>
-				</ul>
-				<?php echo form_close(); ?>
-			</div>
-
-			<div class="modal-footer" >
-				<span>Pastikan data telah terisi dengan benar.</span>
-			</div>
-		</div>
-		<!-- Konten Modal [Akhir] -->
-	</div>
-</div>
-<?php endforeach; ?>
-<!-- Modal Perbarui Data User [Akhir] -->
-
-
-<!-- Modal Hapus Data User [Awal] -->
-<?php foreach ($tb as $user): ?>
-<div id="hapususer<?php echo $user['username']; ?>" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<!-- Konten Modal [Awal] -->
-		<div class="modal-content">
-			<div class="modal-header">
-				Hapus Akun
-				<button type="button" class="close" data-dismiss="modal"><span class="lnr lnr-cross-circle"></span></button>
-			</div>
-
-			<div class="modal-body">
-				<?php echo form_open('dashboard/hapus-user'); ?>
-				<ul>
-					<li>
-						<input type="hidden" name="username" value="<?php echo $user['username']; ?>">
-					</li>
-					<li>
-						<p>Apakah Anda yakin ingin menghapus akun <span><?php echo $user['fullname']; ?></span> dari sistem?</p>
-					</li>
-					<br /><hr />
-					<li>
-						<input type="submit" name="tombol_hapus" value="Hapus" />
-					</li>
-				</ul>
-				<?php echo form_close(); ?>
-			</div>
-
-			<div class="modal-footer">
-				<span>Pastikan kembali apakah data benar-benar ingin dihapus.</span>
-			</div>
-		</div>
-		<!-- Konten Modal [Akhir] -->
-	</div>
-</div>
-<?php endforeach; ?>
-<!-- Modal Hapus Data User [Akhir] -->
+</html>
