@@ -1,7 +1,5 @@
 # CodeIgniter 4 Framework
 
-TEST
-
 ## What is CodeIgniter?
 
 CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
