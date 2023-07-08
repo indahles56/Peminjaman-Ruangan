@@ -23,12 +23,12 @@ class AuthController extends BaseController
                 return redirect()->to('/dashboard');
             } else {
                 // Failed login, show error message or redirect to the login page
-                return redirect()->to('/login')->with('error', 'Invalid username or password');
+                return redirect()->to('user/login')->with('error', 'Invalid username or password');
             }
         }
 
         // Show the login form
-        return view('login');
+        return view('user/login');
     }
 
     public function logout()
@@ -96,6 +96,6 @@ class AuthController extends BaseController
         }
 
         // Show the registration form
-        return view('register');
+        return view('user/register');
     }
 }    

@@ -13,9 +13,9 @@ class Auth implements FilterInterface
         // Perform authentication checks here
         $session = session();
         // jika user belum login
-        if (!$session->get('logged_in')) {
+        if (!($session->get('logged_in'))) {
             // maka redirect ke halaman login
-            return redirect()->to('/user/login');
+            return redirect()->to('user/login');
         }
     }
 
