@@ -42,6 +42,10 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('kelolaRuang', 'Admin\KelolaRuang::update');
     $routes->get('kelolaRuang', 'Admin\KelolaRuang::create');
     $routes->get('dashboard', 'Admin\Dashboard::dashboard');
+    $routes->get('tentang', 'Home::tentang');
+    $routes->get('daftar-ruangan', 'Home::daftarRuangan');
+    $routes->get('daftar-booking', 'Home::daftarBooking');
+    $routes->get('profil', 'Home::profil');
 });
 $routes->get('user/login', 'User\AuthController::login');
 $routes->get('user/register', 'User\AuthController::register');
@@ -52,7 +56,19 @@ $routes->group('user', ['filter' => 'auth'], function ($routes) {
     $routes->get('kelolaBooking', 'User\KelolaBooking::get');
     $routes->get('kelolaBooking', 'User\KelolaBooking::edit');
     $routes->get('kelolaBooking', 'User\KelolaBooking::create');
+    $routes->get('dashboarduser', 'DashboardUser::home');
+    $routes->get('dashboarduser/tentang', 'DashboardUser::tentang');
+    $routes->get('dashboarduser/daftar-ruangan', 'DashboardUser::daftarRuangan');
+    $routes->get('dashboarduser/daftar-booking', 'DashboardUser::daftarBooking');
+    $routes->get('dashboarduser/profil', 'DashboardUser::profil');
+    $routes->get('bookinguser', 'BookingUser::index');
+    $routes->post('bookinguser/booking', 'BookingUser::booking');
+    $routes->get('tentang', 'Home::tentang');
+    $routes->get('daftar-ruangan', 'Home::daftarRuangan');
+    $routes->get('daftar-booking', 'Home::daftarBooking');
+    $routes->get('profil', 'Home::profil');
 });
+
 
 
 

@@ -3,19 +3,59 @@
 namespace App\Controllers;
 
 use App\Models\BookingModel;
-use App\Models\PeminjamanModel;
+use App\Models\RuanganModel;
 
 class BookingUser extends BaseController
 {
     protected $bookingModel;
+    protected $ruanganModel;
 
     public function __construct()
     {
-        $this->bookingModel = new PeminjamanModel();
+        $this->bookingModel = new BookingModel();
+        $this->ruanganModel = new RuanganModel();
     }
 
     public function index()
     {
+        $data['ruanganList'] = $this->ruanganModel->getAllRuangan();
+
+        return view('bookinguser/index', $data);
+    }
+
+    public function booking()
+    {
+        // Validasi data yang dikirim dari form
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'nama_lengkap' => 'required',
+            'ruangan_id' => 'required',
+            'tanggal' => 'required',
+            'jam_mulai' => 'required',
+            'jam_selesai' => 'required',
+            'keterangan' => 'required',
+        ]);
+
+        if ($validation->withRequest($this->request)->run() === FALSE) {
+            // Jika validasi gagal, tampilkan pesan error
+            return redirect()->back()->withInput()->with('error', $validation->getErrors());
+        }
+
+        $namaLengkap = $this->request->getPost('nama_lengkap');
+        $ruanganId = $this->request->getPost('ruangan_id');
+        $tanggal = $this->request->getPost('tanggal');
+        $jamMulai = $this->request->getPost('jam_mulai');
+        $jamSelesai = $this->request->getPost('jam_selesai');
+        $keterangan = $this->request->getPost('keterangan');
+
+        // Panggil model untuk menambah peminjaman
+        $result = $this->bookingModel->tambahBooking($namaLengkap, $ruanganId, $tanggal, $jamMulai, $jamSelesai, $keterangan, 'Pending');
+
+        if ($result) {
+            return redirect()->to(site_url('bookinguser'))->with('success', 'Booking berhasil ditambahkan.');
+        } else {
+            return redirect()->back()->withInput()->with('error', 'Gagal menambahkan booking.');
+        }
         // Get the logged in user's ID (assuming you have user authentication implemented)
         $userId = 1; // Replace with your actual logic to get the user ID
 
