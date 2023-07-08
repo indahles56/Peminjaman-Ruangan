@@ -1,0 +1,7 @@
+writable/session/*
+!writable/session/index.html
+writable/logs/*
+!writable/logs/index.html
+writable/cache/*
+writable/cache/index.html
+writable/debugbar/*
