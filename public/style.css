@@ -1,6 +1,7 @@
-/* Main CSS styles */
+/* Main CSS styles
 
-body {
+
+/* body {
     background-color: #f1f1f1;
     color: #000;
 }
@@ -67,44 +68,102 @@ footer {
     font-size: 14px;
     vertical-align: middle;
     margin-right: 5px;
+} */
+
+
+/* Reset default margin and padding */
+
+body,
+ul {
+    margin: 0;
+    padding: 0;
 }
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+.nav-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.nav-menu li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.nav-menu li a:hover {
+    background-color: #555;
+}
+
+.nav-menu li.logout a {
+    background-color: #fff;
+    color: #f00;
+    border: 1px solid #f00;
+}
+
+.nav-menu li.logout a:hover {
+    background-color: #f00;
+    color: #fff;
+}
+
+
 /* Global Styling */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  h1 {
+}
+
+h1 {
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  /* Table Styling */
-  table {
+}
+
+
+/* Table Styling */
+
+table {
     width: 100%;
     border-collapse: collapse;
-  }
-  
-  th, td {
+}
+
+th,
+td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-  }
-  
-  th {
+}
+
+th {
     background-color: #f5f5f5;
     font-weight: bold;
-  }
-  
-  /* Button Styling */
-  .button-edit, .button-delete {
+}
+
+
+/* Button Styling */
+
+.button-edit,
+.button-delete {
     display: inline-block;
     padding: 6px 12px;
     text-align: center;
@@ -114,18 +173,20 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .button-edit {
+}
+
+.button-edit {
     margin-right: 10px;
-  }
-  
-  .button-delete {
+}
+
+.button-delete {
     margin-left: 10px;
-  }
-  
-  /* Modal Styling */
-  .modal {
+}
+
+
+/* Modal Styling */
+
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -135,161 +196,167 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     background-color: #fff;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     max-width: 600px;
-  }
-  
-  .modal-header {
+}
+
+.modal-header {
     margin-bottom: 10px;
-  }
-  
-  .modal-header button {
+}
+
+.modal-header button {
     float: right;
     background-color: transparent;
     border: none;
     font-size: 20px;
     cursor: pointer;
-  }
-  
-  .modal-body ul {
+}
+
+.modal-body ul {
     list-style: none;
     padding: 0;
-  }
-  
-  .modal-body li {
+}
+
+.modal-body li {
     margin-bottom: 10px;
-  }
-  
-  .modal-footer {
+}
+
+.modal-footer {
     margin-top: 10px;
     text-align: right;
-  }
-  
-  .modal-footer span {
+}
+
+.modal-footer span {
     font-size: 12px;
     color: #888;
-  }
-  
-  /* Responsive Styling */
-  @media (max-width: 768px) {
+}
+
+
+/* Responsive Styling */
+
+@media (max-width: 768px) {
     .container {
-      padding: 10px;
+        padding: 10px;
     }
-    
     table {
-      font-size: 14px;
+        font-size: 14px;
     }
-    
     .modal-content {
-      width: 90%;
+        width: 90%;
     }
-  }
-  .container {
+}
+
+.container {
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  h2 {
+}
+
+h2 {
     font-size: 24px;
     margin-bottom: 20px;
-  }
-  
-  .register-form .form-group {
+}
+
+.register-form .form-group {
     margin-bottom: 20px;
-  }
-  
-  .register-form label {
+}
+
+.register-form label {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
-  }
-  
-  .register-form input[type="text"],
-  .register-form input[type="password"] {
+}
+
+.register-form input[type="text"],
+.register-form input[type="password"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  .register-form button[type="submit"] {
+}
+
+.register-form button[type="submit"] {
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .register-form button[type="submit"]:hover {
+}
+
+.register-form button[type="submit"]:hover {
     background-color: #45a049;
-  }
-  
-  /* Responsive Styling */
-  @media (max-width: 768px) {
+}
+
+
+/* Responsive Styling */
+
+@media (max-width: 768px) {
     .container {
-      max-width: 100%;
-      padding: 10px;
+        max-width: 100%;
+        padding: 10px;
     }
-  }
-  .container {
+}
+
+.container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  .profile {
+}
+
+.profile {
     display: flex;
     align-items: center;
     margin-bottom: 40px;
-  }
-  
-  .profile-info {
+}
+
+.profile-info {
     flex: 1;
-  }
-  
-  .profile-info h2 {
+}
+
+.profile-info h2 {
     font-size: 24px;
     margin-bottom: 10px;
-  }
-  
-  .profile-info p {
+}
+
+.profile-info p {
     font-size: 16px;
     margin-bottom: 5px;
-  }
-  
-  .profile-image {
+}
+
+.profile-image {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
     margin-left: 40px;
-  }
-  
-  .profile-image img {
+}
+
+.profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  
-  /* Responsive Styling */
-  @media (max-width: 768px) {
+}
+
+
+/* Responsive Styling */
+
+@media (max-width: 768px) {
     .profile {
-      flex-direction: column;
-      align-items: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
     }
-  
     .profile-image {
-      margin-top: 20px;
-      margin-left: 0;
+        margin-top: 20px;
+        margin-left: 0;
     }
-  }
-  
+}
+
+*/

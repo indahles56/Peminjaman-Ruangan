@@ -29,7 +29,31 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Admin\AuthController::login');
+$routes->get('admin/register', 'Admin\AuthController::register');
+$routes->get('admin/login', 'Admin\AuthController::login');
+$routes->group('admin', ['filter' => 'auth'], function ($routes) {
+    $routes->get('logout', 'Admin\AuthController::logout');
+    $routes->get('kelolaBooking', 'Admin\KelolaBooking::delete');
+    $routes->get('kelolaBooking', 'Admin\KelolaBooking::get');
+    $routes->get('kelolaBooking', 'Admin\KelolaBooking::update');
+    $routes->get('kelolaRuang', 'Admin\KelolaRuang::delete');
+    $routes->get('kelolaRuang', 'Admin\KelolaRuang::get');
+    $routes->get('kelolaRuang', 'Admin\KelolaRuang::update');
+    $routes->get('kelolaRuang', 'Admin\KelolaRuang::create');
+    $routes->get('dashboard', 'Admin\Dashboard::dashboard');
+});
+$routes->get('user/login', 'User\AuthController::login');
+$routes->get('user/register', 'User\AuthController::register');
+$routes->group('user', ['filter' => 'auth'], function ($routes) {
+    $routes->get('dashboard', 'User\Dashboard::dashboard');
+    $routes->get('logout', 'User\AuthController::logout');
+    $routes->get('kelolaBooking', 'User\KelolaBooking::delete');
+    $routes->get('kelolaBooking', 'User\KelolaBooking::get');
+    $routes->get('kelolaBooking', 'User\KelolaBooking::edit');
+    $routes->get('kelolaBooking', 'User\KelolaBooking::create');
+});
+
 
 
 /*
