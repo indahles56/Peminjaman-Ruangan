@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Dashboard User</title>
     <link rel="stylesheet" href="<?= base_url('adminlte/dist/css/adminlte.min.css') ?>">
-	<!-- AdminLTE v3 JS -->
-	<script src="<?= base_url('adminlte/dist/js/adminlte.min.js') ?>"></script>
+    <!-- AdminLTE v3 JS -->
+    <script src="<?= base_url('adminlte/dist/js/adminlte.min.js') ?>"></script>
     <!-- Tambahkan link CSS atau framework CSS lainnya -->
 </head>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
@@ -21,25 +23,7 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="#" class="brand-link">
-                <span class="brand-text font-weight-light">Dashboard User</span>
-            </a>
-
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Menu Navigasi -->
-                    </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
-            </div>
-            <!-- /.sidebar -->
-        </aside>
-
+        <?php include('sidebar.php'); ?>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -67,7 +51,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="pilih_ruangan">Pilih Ruangan:</label>
-                                    <input type="text" id="pilih_ruangan" name="pilih_ruangan" class="form-control" required>
+                                    <select name="pilih_ruangan" id="pilih_ruangan">
+                                        <?php foreach ($rooms as $room): ?>
+                                            <option value="<?= $room['kode_ruang']; ?>"><?= $room['kode_ruang']; ?></option>
+                                            <?php endforeach; ?>
+                                    </select>
+            
                                 </div>
                                 <div class="form-group">
                                     <label for="tanggal">Tanggal:</label>
@@ -75,18 +64,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="jam_mulai">Jam Mulai:</label>
-                                    <input type="date" id="jam_mulai" name="jam_mulai" class="form-control" required>
+                                    <input type="time" id="jam_mulai" name="jam_mulai" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="jam_selesai">Jam Selesai:</label>
-                                    <input type="date" id="jam_selesai" name="jam_selesai" class="form-control" required>
+                                    <input type="time" id="jam_selesai" name="jam_selesai" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="keterangan">Keterangan:</label>
                                     <input type="text" id="keterangan" name="keterangan" class="form-control" required>
                                 </div>
                                 <!-- Tambahkan elemen form untuk booking ruangan di sini -->
-                                <button type="submit" class="btn btn-primary">BOOKING</button>
+                                <button type="submit" class="btn btn-primary">Pesan</button>
                             </form>
                         </div>
                     </div>
@@ -98,4 +87,5 @@
     </div>
     <!-- ./wrapper -->
 </body>
+
 </html>
