@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\RuanganModel;
-use App\Models\RuangModel;
+
 
 class KelolaRuang extends BaseController
 {
