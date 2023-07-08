@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Profile - Peminjaman Ruang Kelas</title>
+    <title>Admin Profile - Peminjaman Ruang Kelas</title>
 </head>
 <body>
-    <h1>User Profile</h1>
+    <h1>Admin Profile</h1>
     
     <?php
     // User data (retrieve from the database or any other data source)
