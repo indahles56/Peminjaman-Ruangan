@@ -1,14 +1,18 @@
 <?php
 
-namespace App\Controllers;
-use App\Controllers\BaseController;
+namespace App\Controllers\User;
 
-class DashboardUser extends BaseController
+use App\Controllers\BaseController;
+use App\Models\RuanganModel;
+
+class UserDashboardController extends BaseController
 {
     public function home()
     {
         // Tampilkan halaman home pengguna
-        return view('user/dashboard1');
+        $roomModel = new RuanganModel();
+        $rooms = $roomModel->findAll();
+        return view('user/dashboard1', ['rooms'=>$rooms]);
     }
 
     public function tentang()

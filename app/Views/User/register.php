@@ -15,9 +15,9 @@
   <div class="card-body register-card-body">
     <p class="login-box-msg">Registrasi Pengguna Baru</p>
 
-    <form action="<?= base_url('registrasi/proses') ?>" method="post">
+    <form action="<?= base_url('user/register') ?>" method="post">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Nama Lengkap" name="fullname" required>
+        <input type="text" class="form-control" placeholder="Nama Lengkap" name="name" required>
         <div class="input-group-append">
           <div class="input-group-text">
             <span class="fas fa-user"></span>
@@ -50,7 +50,7 @@
       </div>
       <div class="row">
         <div class="col-8">
-          <a href="<?= base_url('login') ?>" class="text-center">Sudah memiliki akun? Masuk</a>
+          <a href="<?= base_url('user/login') ?>" class="text-center">Sudah memiliki akun? Masuk</a>
         </div>
         <div class="col-4">
           <button type="submit" class="btn btn-primary btn-block">Daftar</button>
