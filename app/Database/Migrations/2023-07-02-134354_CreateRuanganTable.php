@@ -9,18 +9,28 @@ class CreateRuanganTable extends Migration
     public function up()
     {
         $this->forge->addField([
-            'kode_ruang' => [
+            'id' => [
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
+            'kode_ruang' => [
+                'type' => 'VARCHAR',
+                'constraint' => 11,
+                'unique' => true,
+            ],
             'nama_ruang' => [
                 'type' => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => 100,
             ],
+            'spesifikasi' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ]
         ]);
-        $this->forge->addPrimaryKey('kode_ruang');
+        $this->forge->addPrimaryKey('id');
         $this->forge->createTable('ruangan');
     }
 
