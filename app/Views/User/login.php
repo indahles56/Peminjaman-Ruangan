@@ -27,13 +27,13 @@
 				<!-- Cek jika login gagal -->
 				<?php if (session()->has('errors')) : ?>
 					<div class="alert alert-danger mt-3">
-						<?= (session('errors')) ?>
+						<?= (session()->get('errors')) ?>
 					</div>
 				<?php endif; ?>
 
 				<p class="login-box-msg">Sign in to start your session</p>
 				<!-- Login form -->
-				<form action="<?= base_url('admin/login') ?>" method="post">
+				<form action="<?= base_url('user/login') ?>" method="post">
 					<div class="input-group mb-3">
 						<input type="email" name="email" class="form-control" placeholder="Email" autofocus="true" required>
 						<div class="input-group-append">

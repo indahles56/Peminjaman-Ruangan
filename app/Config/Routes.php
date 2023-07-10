@@ -11,7 +11,7 @@ $routes = Services::routes();
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -31,7 +31,9 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Admin\AuthController::login');
 $routes->get('admin/register', 'Admin\AuthController::register');
+$routes->post('admin/register', 'Admin\AuthController::register');
 $routes->get('admin/login', 'Admin\AuthController::login');
+$routes->post('admin/login', 'Admin\AuthController::login');
 $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('logout', 'Admin\AuthController::logout');
     $routes->get('kelolaBooking', 'Admin\KelolaBooking::delete');
@@ -48,9 +50,11 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('profil', 'Home::profil');
 });
 $routes->get('user/login', 'User\AuthController::login');
+$routes->post('user/login', 'User\AuthController::login');
 $routes->get('user/register', 'User\AuthController::register');
+$routes->post('user/register', 'User\AuthController::register');
 $routes->group('user', ['filter' => 'auth'], function ($routes) {
-    $routes->get('dashboard', 'User\Dashboard::dashboard');
+    $routes->get('dashboard', 'User\UserDashboard::home');
     $routes->get('logout', 'User\AuthController::logout');
     $routes->get('kelolaBooking', 'User\KelolaBooking::delete');
     $routes->get('kelolaBooking', 'User\KelolaBooking::get');
