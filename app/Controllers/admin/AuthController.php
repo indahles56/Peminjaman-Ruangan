@@ -1,54 +1,70 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\admin;
 
 use App\Controllers\BaseController;
-use App\Models\UserModel;
+use App\Models\AdminModel;
 
 class AuthController extends BaseController
 {
+
     public function login()
     {
-        // Get the request object
-        $request = service('request');
+        helper(['form']);
 
-        // Check if the form is submitted
-        if ($request->getMethod() === 'post') {
-            // Retrieve the submitted login credentials
-            $username = $request->getPost('username');
-            $password = $request->getPost('password');
+        $request = service('request')->getMethod();
 
-            if ($this->validateCredentials($username, $password)) {
-                // Successful login, set session or redirect to the dashboard
-                return redirect()->to('/dashboard');
-            } else {
-                // Failed login, show error message or redirect to the login page
-                return redirect()->to('/login')->with('error', 'Invalid username or password');
+        if (!($request === 'post')) {
+            return view('admin/login');
+        }
+        $email = $this->request->getPost('email');
+        $password = (string) $this->request->getPost('password');
+        $session = session();
+        $model = new AdminModel();
+        $login = $model->where('email', $email)->first();
+        if ($login) {
+            $pass = $login['password'];
+            if (is_array($pass)) {
+                $pass = $pass['password'];
             }
+
+            if (password_verify($password, $pass)) {
+                $login_data = [
+                    'user_id' => $login['id'],
+                    'user_name' => $login['name'],
+                    'user_email' => $login['email'],
+                    'logged_in' => TRUE,
+                ];
+                $session->set($login_data);
+                return redirect()->to(base_url('admin/dashboard'));
+            } else {
+                $session->setFlashdata("errors", "Password salah.");
+                return redirect()->to(base_url('admin/login'));
+            }
+        } else {
+            $session->setFlashdata("errors", "Email tidak terdaftar.");
+            return redirect()->to(base_url('admin/login'));
         }
 
-        // Show the login form
-        return view('login');
     }
+
 
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/login');
+        return redirect()->to(base_url('admin/login'));
     }
 
     private function validateCredentials($email, $password)
     {
         $db = db_connect();
-    
+        $model = new AdminModel();
+
         // Query the 'pengguna' table to validate the credentials
-        $query = $db->table('admin')
-                    ->where('email', $email)
-                    ->where('password', $password)
-                    ->get();
-    
-        $result = $query->getRow();
-    
+        $query = $model->where('email', $email)->where('password', $password)->first();
+
+        $result = $query;
+
         // Check if a matching record is found
         if ($result !== null) {
             return true; // Valid credentials
@@ -59,44 +75,64 @@ class AuthController extends BaseController
 
     public function register()
     {
-        $request = service('request');
+        helper(['form']);
 
-        // Check if the form is submitted
-        if ($request->getMethod() === 'post') {
-            // Retrieve the submitted form data
-            $username = $request->getPost('username');
-            $email = $request->getPost('email');
-            $password = $request->getPost('password');
+        $request = service('request')->getMethod();
 
-            // Validate the input data
-            $validation = $this->validate([
-                'username' => 'required|min_length[3]|max_length[50]',
-                'email' => 'required|valid_email|is_unique[users.email]',
-                'password' => 'required|min_length[6]',
-            ]);
-
-            // If validation fails, redirect back to the registration form with validation errors
-            if (!$validation) {
-                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-            }
-
-            // Hash the password
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-            // Create a new user record in the database
-            $userModel = new UserModel();
-            $userModel->save([
-                'username' => $username,
-                'email' => $email,
-                'password' => $hashedPassword,
-            ]);
-
-            // If registration is successful, redirect to the login page or show a success message
-            return redirect()->to('/login')->with('success', 'Registration successful!');
+        if (!($request === 'post')) {
+            return view('admin/register');
         }
 
-        // Show the registration form
-        return view('register');
+        $formData = $this->request;
+        $name = $formData->getPost('name');
+        $email = $formData->getPost('email');
+        $password = (string) $formData->getPost('password');
+        $passwordConfirmation = (string) $formData->getPost('password_confirmation');
+
+        // Perform validation
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'name' => 'required',
+            'email' => 'required|valid_email',
+            'password' => 'required|min_length[6]',
+            'password_confirmation' => 'required|matches[password]',
+        ]);
+
+        if (
+            $validation->run([
+                'name' => $name,
+                'email' => $email,
+                'password' => $password,
+                'password_confirmation' => $passwordConfirmation,
+            ])
+        ) {
+            // Create a new instance of the AdminModel
+            $adminModel = new AdminModel();
+
+            // Prepare the data for insertion
+            $data = [
+                'name' => $name,
+                'email' => $email,
+                'password' => password_hash($password, PASSWORD_DEFAULT)
+            ];
+
+            // Insert the data into the database
+            if ($adminModel->insert($data)) {
+                // Set the success flash message
+                $session = session();
+                $session->setFlashdata('success', 'Registration successful! You can now log in.');
+
+                // Registration successful, redirect to login page or display success message
+                return redirect()->to(base_url('admin/login'));
+            } else {
+                // Failed to insert data, redirect to register page or display error message
+                return redirect()->back()->with('error', 'Failed to register. Please try again.');
+            }
+        } else {
+            // Validation failed, redirect back to the register page with errors
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }
+
     }
 
-}    
+}
