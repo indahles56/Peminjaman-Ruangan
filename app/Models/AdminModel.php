@@ -9,5 +9,5 @@ class AdminModel extends Model
     protected $table            = 'admin';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $allowedFields    = ['name', 'email', 'passsword', ];
+    protected $allowedFields    = ['name', 'email', 'password'];
 }

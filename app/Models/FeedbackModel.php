@@ -9,5 +9,5 @@ class FeedbackModel extends Model
     protected $table            = 'feedback';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $allowedFields    = ['keterangan', 'user'];
+    protected $allowedFields    = ['keterangan', 'user', 'ruang'];
 }

@@ -11,7 +11,6 @@ class AuthController extends BaseController
     {
         // Get the request object
         $request = service('request');
-
         // Check if the form is submitted
         if ($request->getMethod() === 'post') {
             // Retrieve the submitted login credentials
