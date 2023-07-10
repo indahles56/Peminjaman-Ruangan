@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-12">
                             <h2>Informasi Tentang</h2>
-                            <p>Tambahkan konten tentang di sini.</p>
+                            <p>Pinjam Ruang merupakan sebuah aplikasi berbasis website yang bertujuan untuk mempermudah peminjaman ruangan pada suatu universitas/kampus.</p>
                         </div>
                     </div>
                 </div>
