@@ -1,62 +1,67 @@
-<<<<<<< HEAD
-<?php
-require_once 'koneksi.php';
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Registration - Peminjaman Ruang</title>
+  <link rel="stylesheet" href="<?= base_url('adminlte/dist/css/adminlte.min.css') ?>">
+	<!-- AdminLTE v3 JS -->
+	<script src="<?= base_url('adminlte/dist/js/adminlte.min.js') ?>"></script>
+</head>
+<body class="hold-transition register-page">
+  <div class="register-box">
+    <div class="register-logo">
+      <a href="<?= base_url('/') ?>"><b>Peminjaman</b> Ruang</a>
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Memperoleh data dari form
-    $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $email = $_POST['email'];
+    </div>
+<div class="card">
+  <div class="card-body register-card-body">
+    <p class="login-box-msg">Registrasi Pengguna Baru</p>
 
-    // Menyimpan data ke database
-    $query = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
-    $statement = $conn->prepare($query);
-    $statement->bindParam(':username', $username);
-    $statement->bindParam(':password', $password);
-    $statement->bindParam(':email', $email);
-    
-    if ($statement->execute()) {
-        echo "Registrasi berhasil.";
-    } else {
-        echo "Registrasi gagal.";
-    }
-}
-?>
-
-<!-- Form Registrasi -->
-<form method="POST" action="register.php">
-    <label for="username">Username:</label>
-    <input type="text" name="username" required>
-    
-    <label for="password">Password:</label>
-    <input type="password" name="password" required>
-    
-    <label for="email">Email:</label>
-    <input type="email" name="email" required>
-    
-    <input type="submit" value="Register">
-</form>
-=======
-<div class="container">
-  <h2>Registrasi Pengguna Baru</h2>
-  <form class="register-form" action="proses-registrasi.php" method="POST">
-    <div class="form-group">
-      <label for="fullname">Nama Lengkap</label>
-      <input type="text" id="fullname" name="fullname" required>
-    </div>
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" required>
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-    </div>
-    <div class="form-group">
-      <label for="confirm-password">Konfirmasi Password</label>
-      <input type="password" id="confirm-password" name="confirm_password" required>
-    </div>
-    <button type="submit">Daftar</button>
-  </form>
+    <form action="<?= base_url('registrasi/proses') ?>" method="post">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Nama Lengkap" name="fullname" required>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" placeholder="Email" name="email" required>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-envelope"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" placeholder="Password" name="password" required>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" placeholder="Konfirmasi Password" name="confirm_password" required>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-8">
+          <a href="<?= base_url('login') ?>" class="text-center">Sudah memiliki akun? Masuk</a>
+        </div>
+        <div class="col-4">
+          <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
->>>>>>> 5ef08f7a5349b820221a64f248d25bb848681c20
+  </div>
+  <script src="<?= base_url('adminlte/plugins/jquery/jquery.min.js') ?>"></script>
+  <script src="<?= base_url('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+</body>
+</html>
