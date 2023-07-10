@@ -11,7 +11,7 @@ $routes = Services::routes();
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -29,7 +29,51 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Admin\AuthController::login');
+$routes->get('admin/register', 'Admin\AuthController::register');
+$routes->post('admin/register', 'Admin\AuthController::register');
+$routes->get('admin/login', 'Admin\AuthController::login');
+$routes->post('admin/login', 'Admin\AuthController::login');
+$routes->group('admin', ['filter' => 'auth'], function ($routes) {
+    $routes->get('logout', 'Admin\AuthController::logout');
+    $routes->get('kelolaBooking', 'Admin\KelolaBooking::delete');
+    $routes->get('kelolaBooking', 'Admin\KelolaBooking::get');
+    $routes->get('kelolaBooking', 'Admin\KelolaBooking::update');
+    $routes->get('kelolaRuang', 'Admin\KelolaRuang::delete');
+    $routes->get('kelolaRuang', 'Admin\KelolaRuang::get');
+    $routes->get('kelolaRuang', 'Admin\KelolaRuang::update');
+    $routes->get('kelolaRuang', 'Admin\KelolaRuang::create');
+    $routes->get('dashboard', 'Admin\Dashboard::dashboard');
+    $routes->get('tentang', 'Home::tentang');
+    $routes->get('daftar-ruangan', 'Home::daftarRuangan');
+    $routes->get('daftar-booking', 'Home::daftarBooking');
+    $routes->get('profil', 'Home::profil');
+});
+$routes->get('user/login', 'User\AuthController::login');
+$routes->post('user/login', 'User\AuthController::login');
+$routes->get('user/register', 'User\AuthController::register');
+$routes->post('user/register', 'User\AuthController::register');
+$routes->group('user', ['filter' => 'auth'], function ($routes) {
+    $routes->get('dashboard', 'User\UserDashboard::home');
+    $routes->get('logout', 'User\AuthController::logout');
+    $routes->get('kelolaBooking', 'User\KelolaBooking::delete');
+    $routes->get('kelolaBooking', 'User\KelolaBooking::get');
+    $routes->get('kelolaBooking', 'User\KelolaBooking::edit');
+    $routes->get('kelolaBooking', 'User\KelolaBooking::create');
+    $routes->get('dashboarduser', 'DashboardUser::home');
+    $routes->get('dashboarduser/tentang', 'DashboardUser::tentang');
+    $routes->get('dashboarduser/daftar-ruangan', 'DashboardUser::daftarRuangan');
+    $routes->get('dashboarduser/daftar-booking', 'DashboardUser::daftarBooking');
+    $routes->get('dashboarduser/profil', 'DashboardUser::profil');
+    $routes->get('bookinguser', 'BookingUser::index');
+    $routes->post('bookinguser/booking', 'BookingUser::booking');
+    $routes->get('tentang', 'Home::tentang');
+    $routes->get('daftar-ruangan', 'Home::daftarRuangan');
+    $routes->get('daftar-booking', 'Home::daftarBooking');
+    $routes->get('profil', 'Home::profil');
+});
+
+
 
 
 /*
