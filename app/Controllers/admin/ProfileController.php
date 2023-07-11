@@ -18,7 +18,7 @@ class ProfileController extends BaseController
     public function index()
     {
         $id = session()->get('user_id');
-        $data = $this->adminModel->where('id', 1)->first();
+        $data = $this->adminModel->where('id', $id)->first();
         return view('admin/profil', ['user' => $data]);
     }
 
@@ -30,12 +30,24 @@ class ProfileController extends BaseController
 
         $validation = $this->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => [
+                'rules' => 'required|valid_email|is_unique[pengguna.email]',
+                'errors' => [
+                    'required' => 'The name field is required.',
+                    'valid_email' => 'Please enter a valid email address.',
+                    'is_unique' => 'This email address is already taken.',
+                ],
+            ],
         ]);
 
         if (!$validation) {
-            return $this->response->setJSON(['is_valid' => false, 'message' => 'Request tidak valid', 'data' => 'Validation Error']);
+            $errorMessages = [];
+            foreach ($this->validator->getErrors() as $field => $error) {
+                $errorMessages[] = $error;
+            }
+            return $this->response->setJSON(['is_valid' => false, 'message' => $errorMessages, 'data' => $errorMessages]);
         }
+
         $admin = $this->adminModel->find($userId);
         if (!$admin) {
             return $this->response->setJSON(['success' => false, 'message' => 'Data admin not found']);
