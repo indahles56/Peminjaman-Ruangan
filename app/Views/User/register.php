@@ -1,66 +1,99 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>User Registration - Peminjaman Ruang</title>
-  <link rel="stylesheet" href="<?= base_url('adminlte/dist/css/adminlte.min.css') ?>">
-	<!-- AdminLTE v3 JS -->
-	<script src="<?= base_url('adminlte/dist/js/adminlte.min.js') ?>"></script>
-</head>
-<body class="hold-transition register-page">
-  <div class="register-box">
-    <div class="register-logo">
-      <a href="<?= base_url('/') ?>"><b>Peminjaman</b> Ruang</a>
-    </div>
-<div class="card">
-  <div class="card-body register-card-body">
-    <p class="login-box-msg">Registrasi Pengguna Baru</p>
+<html lang="en">
 
-    <form action="<?= base_url('user/register') ?>" method="post">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Nama Lengkap" name="name" required>
-        <div class="input-group-append">
-          <div class="input-group-text">
-            <span class="fas fa-user"></span>
-          </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
+    <link rel="stylesheet" href="<?= base_url('adminlte/dist/css/adminlte.min.css') ?>">
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Add additional styles for other elements */
+    </style>
+    <title>Register</title>
+</head>
+
+<body background="assets/upb.jpg" class="custom-bg">
+    <div class=" container">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-lg-9">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            Register New Account
+                        </h3>
+                    </div>
+                    <div class="card-body login-card-body">
+                        <form id="register-form" action="<?= base_url('register') ?>" method="post">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="name" placeholder="Name" autofocus="true"
+                                    required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-user"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-envelope"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input id="password" type="password" class="form-control" name="password"
+                                    placeholder="Password" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" name="password_confirmation"
+                                    placeholder="Retype Password" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Display validation errors -->
+                        <?php if (session()->has('errors')): ?>
+                            <div class="alert alert-danger mt-3">
+                                <ul>
+                                    <?php foreach (session('errors') as $error): ?>
+                                        <li>
+                                            <?= $error ?>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="card-footer text-center">
+                            <a href="javascript:history.back();">Back To Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="input-group mb-3">
-        <input type="email" class="form-control" placeholder="Email" name="email" required>
-        <div class="input-group-append">
-          <div class="input-group-text">
-            <span class="fas fa-envelope"></span>
-          </div>
-        </div>
-      </div>
-      <div class="input-group mb-3">
-        <input type="password" class="form-control" placeholder="Password" name="password" required>
-        <div class="input-group-append">
-          <div class="input-group-text">
-            <span class="fas fa-lock"></span>
-          </div>
-        </div>
-      </div>
-      <div class="input-group mb-3">
-        <input type="password" class="form-control" placeholder="Konfirmasi Password" name="confirm_password" required>
-        <div class="input-group-append">
-          <div class="input-group-text">
-            <span class="fas fa-lock"></span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-8">
-          <a href="<?= base_url('user/login') ?>" class="text-center">Sudah memiliki akun? Masuk</a>
-        </div>
-        <div class="col-4">
-          <button type="submit" class="btn btn-primary btn-block">Daftar</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-  </div>
-  <script src="<?= base_url('adminlte/plugins/jquery/jquery.min.js') ?>"></script>
-  <script src="<?= base_url('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    </div>
 </body>
+
 </html>
