@@ -22,14 +22,13 @@
                     <tr>
                         <th>Kode Pinjam</th>
                         <th>Kode Ruang</th>
-                        <th>Nama Kegiatan</th>
+                        <th>Nama Peminjam</th>
                         <th>Status</th>
                         <th>Waktu Pengajuan</th>
                         <th>Tanggal</th>
                         <th>Waktu Mulai</th>
                         <th>Waktu Selesai</th>
-                        <th>User</th>
-                        <th>Admin</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -44,7 +43,7 @@
                                 <?= $booking['kode_ruang'] ?>
                             </td>
                             <td>
-                                <?= $booking['nama_kegiatan'] ?>
+                                <?= $booking['username'] ?>
                             </td>
                             <td>
                                 <?= $booking['status'] ?>
@@ -62,14 +61,16 @@
                                 <?= $booking['waktu_selesai'] ?>
                             </td>
                             <td>
-                                <?= $booking['user'] ?>
+                                <?= $booking['status'] ?>
                             </td>
                             <td>
-                                <?= $booking['admin'] ?>
-                            </td>
-                            <td>
-                                <button class="btn btn-sm btn-danger">Tolak</button>
-                                <button class="btn btn-sm btn-success">Setujui</button>
+                                <button
+                                    class="btn btn-sm btn-success action-button<?= ($booking['status'] === 'cancel') ? ' disabled' : '' ?>"
+                                    data-id="<?= $booking['kode_pinjam'] ?>" data-status="approve">Setujui</button>
+                                <button
+                                    class="btn btn-sm btn-danger action-button<?= ($booking['status'] === 'cancel') ? ' disabled' : '' ?>"
+                                    data-id="<?= $booking['kode_pinjam'] ?>" data-status="deny">Tolak</button>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -79,3 +80,30 @@
     </div>
 </section>
 <!-- /.content -->
+
+<script>
+    $(document).ready(function () {
+        $('.action-button').click(function (e) {
+            var bookingId = $(this).data('id');
+            var status = $(this).data('status');
+            console.log(bookingId);
+            var url = 'update-booking';
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {
+                    'id': bookingId,
+                    'status': status
+                },
+                success: function (response) {
+                    $('#content').load('bookings');
+                },
+                error: function (response) {
+                    // Error occurred during the AJAX request
+                    alert(response.message + 'error');
+                }
+            });
+        });
+    });
+
+</script>
