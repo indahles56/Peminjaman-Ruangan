@@ -11,7 +11,7 @@
     <script src="<?= base_url('adminlte/dist/js/adminlte.min.js') ?>"></script>
 </head>
 
-<body class="hold-transition login-page">
+<body background="<?= base_url('assets/admin-bg.jpg') ?>" class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
             <a href="<?= base_url() ?>">Aplikasi Peminjaman Ruangan</a>
