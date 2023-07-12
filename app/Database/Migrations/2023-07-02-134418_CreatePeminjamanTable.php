@@ -28,7 +28,7 @@ class CreatePeminjamanTable extends Migration
                 'unsigned' => true
             ],
             'waktu_pengajuan' => [
-                'type' => 'TIMESTAMP',
+                'type' => 'DATETIME',
             ],
             'tanggal' => [
                 'type' => 'DATE',
