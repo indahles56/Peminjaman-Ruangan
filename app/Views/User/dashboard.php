@@ -12,16 +12,15 @@
 
     <!-- Main Content -->
     <div class="row-cols-2">
-        <div class="relative" style="position: relative; left: 30px; top:120px; width: 50vw;">
+        <div class="relative" style="position: relative; left: 30px; top:80px; width: 50vw;">
             <h1 style="margin-bottom: 20px;">Haloo</h1>
             <h3 class="card-header" style="margin-bottom: 20px;">Selamat Datang!!</h3>
             <h3 class="card-header">Silahkan mulai pengajuan peminjaman ruangan anda!</h3>
         </div>
-        <div class="row justify-content-center mt-5 relative" style="position: relative; left: 60vw; width: 30vw;">
+        <div class="row relative" style="position: relative; left: 60vw; width: 30vw;">
             <div class="card text-center col-md-6" style="width: 40rem;">
                 <h5 class="card-header">Pinjam Ruangan</h5>
                 <div class="card-body">
-
                     <form id="book-form">
                         <div class="row mb-3">
                             <label for="nama_lengkap" class="col-sm-4 col-form-label">Nama Lengkap:</label>
@@ -113,13 +112,11 @@
                 console.log(data);
                 $.ajax({
                     url: 'process-booking', // Replace with the actual URL to your PHP controller
-                    type: 'POSt',
+                    type: 'POST',
                     data: data,
                     success: function (response) {
                         // Handle the response data
-                        console.log(response);
-
-                        alert(response.message);
+                        alert('Peminjaman Sukses Diajukan');
                         document.getElementById('book-form').reset();
                     },
                     error: function (xhr, status, error) {

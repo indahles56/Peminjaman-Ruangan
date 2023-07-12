@@ -8,8 +8,6 @@ class CreatePeminjamanTable extends Migration
 {
     public function up()
     {
-        $this->forge->dropTable('peminjaman');
-
         $this->forge->addField([
             'kode_pinjam' => [
                 'type' => 'INT',

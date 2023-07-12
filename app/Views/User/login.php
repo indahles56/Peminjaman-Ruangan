@@ -13,9 +13,9 @@
     <title>Login</title>
 </head>
 
-<body background="assets/upb.jpg" class="custom-bg">
+<body background="assets/upb.png" class="custom-bg">
     <div class="container">
-        <div class="row justify-content-center mt-5">
+        <div class="row mt-5">
             <div clas="login-text">
                 <h1>
                     Selamat Datang Di Website Peminjaman Ruang Kelas!!

@@ -4,14 +4,26 @@ namespace App\Controllers\User;
 
 use App\Controllers\BaseController;
 use App\Models\PeminjamanModel;
+use App\Models\UserModel;
 
 class BookingController extends BaseController
 {
     public function index()
     {
         $bookingModel = new PeminjamanModel();
+        $userModel = new UserModel();
+
         $user = session()->get('user_id');
         $bookings = $bookingModel->where('user', $user)->orderBy('waktu_pengajuan', 'ASC')->findAll();
+
+        foreach ($bookings as &$booking) {
+            // Retrieve the user details based on the 'user' field
+            $user = $userModel->find($booking['user']);
+
+            // Set the username in the booking array
+            $booking['username'] = $user['name'];
+        }
+
         return view('user/daftar_peminjaman', ['bookings' => $bookings]);
 
     }
@@ -54,7 +66,7 @@ class BookingController extends BaseController
             ];
 
         $bookModel->insert($data);
-        return redirect()->to(base_url('user/booking'));
+        return redirect()->to(base_url('user/bookings'));
     }
 
     public function cancel()
