@@ -51,23 +51,23 @@ $routes->group('user', ['filter' => 'user_auth'], static function ($routes) {
 /* 
     Admin Section
  */
-$routes->get('admin/login', 'Admin\AuthController::login');
-$routes->post('admin/login', 'Admin\AuthController::login');
-$routes->get('admin/register', 'Admin\AuthController::register');
-$routes->post('admin/register', 'Admin\AuthController::register');
+$routes->get('admin/login', 'admin\AuthController::login');
+$routes->post('admin/login', 'admin\AuthController::login');
+$routes->get('admin/register', 'admin\AuthController::register');
+$routes->post('admin/register', 'admin\AuthController::register');
 $routes->group('admin', ['filter' => 'admin_auth'], static function ($routes) {
-    $routes->get('dashboard', 'Admin\DashboardController::index');
-    $routes->get('users', 'Admin\ManageUsersController::index');
-    $routes->delete('users/delete/(:any)', 'Admin\ManageUsersController::delete/$1');
-    $routes->get('bookings', 'Admin\ManageBookingsController::index');
-    $routes->post('update-booking', 'Admin\ManageBookingsController::update');
-    $routes->get('profile', 'Admin\ProfileController::index');
-    $routes->post('profile/update', 'Admin\ProfileController::updateProfile');
-    $routes->post('profile/changepassword', 'Admin\ProfileController::changePassword');
-    $routes->get('rooms', 'Admin\ManageRoomsController::index');
-    $routes->post('add-room', 'Admin\ManageRoomsController::store');
-    $routes->post('rooms/update/(:any)', 'Admin\ManageRoomsController::update/$1');
-    $routes->get('logout', 'Admin\AuthController::logout');
+    $routes->get('dashboard', 'admin\DashboardController::index');
+    $routes->get('users', 'admin\ManageUsersController::index');
+    $routes->delete('users/delete/(:any)', 'admin\ManageUsersController::delete/$1');
+    $routes->get('bookings', 'admin\ManageBookingsController::index');
+    $routes->post('update-booking', 'admin\ManageBookingsController::update');
+    $routes->get('profile', 'admin\ProfileController::index');
+    $routes->post('profile/update', 'admin\ProfileController::updateProfile');
+    $routes->post('profile/changepassword', 'admin\ProfileController::changePassword');
+    $routes->get('rooms', 'admin\ManageRoomsController::index');
+    $routes->post('add-room', 'admin\ManageRoomsController::store');
+    $routes->post('rooms/update/(:any)', 'admin\ManageRoomsController::update/$1');
+    $routes->get('logout', 'admin\AuthController::logout');
 });
 
 
