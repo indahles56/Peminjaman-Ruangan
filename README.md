@@ -1,9 +1,15 @@
-# CodeIgniter 4 Framework
+# peminjaman Ruangan 
 
-## What is CodeIgniter?
+## peminjaman Ruangan berbasis web-app
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Sistem peminjaman ruang kelas berbasis web yang dapat digunakan untuk melakukan pengajuan peminjaman ruang kelas dan pengelolaan peminjaman ruang kelas itu sendiri. Dibuat sebagai alternatif dari mekanisme peminjaman ruang kelas secara manual yang umumnya menggunakan media kertas untuk melakukan pengajuan peminjaman.
+
+##     Fitur 
+1.Mengajukan peminjaman ruang kelas
+Mengelola peminjaman yang diajukan oleh pengguna (menyetujui, menghapus, memeriksa data peminjaman, dan lain sebagainya)
+Unduh data peminjaman berdasarkan tanggal
+2.Dapat diintegrasikan dengan perangkat/hardware penguncian pintu otomatis (saat ini hanya masih menggunakan prototipe perangkat penguncian sederhana hasil perpaduan RFID dan Solenoid Door Lock)
+3.Tampilan aplikasi dibangun secara responsif (responsive web design) sehingga tampilan akan menyesuaikan perangkat yang digunakan, bila menggunakan perangkat komputer akan menyesuaikan tampilan komputer, sedangkan bila menggunakan ponsel akan menyesuaikan tampilan ponsel
 
 This repository holds the distributable version of the framework.
 It has been built from the
