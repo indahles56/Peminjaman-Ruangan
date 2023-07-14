@@ -1,11 +1,11 @@
 # Peminjaman Ruangan berbasis web/apk
 ## Kelompok 7 (peminjaman ruangan)
 Nama anggota :
-- Indah lestari
-- Fadilah Nuraini
-- wiwin Winarti
-- Aulia 
-- Meygi lampnda 
+- Indah Lestari - 312110073
+- Fadilah Nuraini - 312110076
+- Wiwin Winarti - 
+- Aisyah Aulia Zahra
+- Meygi Lamonda 
 
 ## Deskripsi:
 Proyek ini adalah aplikasi web peminjaman ruangan yang memudahkan pengguna untuk melihat ketersediaan ruangan, mengajukan permohonan peminjaman, dan mengelola jadwal peminjaman secara efisien.Sistem peminjaman ruang kelas berbasis web yang dapat digunakan untuk melakukan pengajuan peminjaman ruang kelas dan pengelolaan peminjaman ruang kelas itu sendiri. Dibuat sebagai alternatif dari mekanisme peminjaman ruang kelas secara manual yang umumnya menggunakan media kertas untuk melakukan pengajuan peminjaman.
