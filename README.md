@@ -1,54 +1,85 @@
-# CodeIgniter 4 Framework
+# Peminjaman Ruangan berbasis web/apk
+## Kelompok 7 (peminjaman ruangan)
+Nama anggota :
+- Indah lestari
+- Fadilah Nuraini
+- wiwin Winarti
+- Aulia 
+- Meygi lampnda 
 
-## What is CodeIgniter?
+## Deskripsi:
+Proyek ini adalah aplikasi web peminjaman ruangan yang memudahkan pengguna untuk melihat ketersediaan ruangan, mengajukan permohonan peminjaman, dan mengelola jadwal peminjaman secara efisien.Sistem peminjaman ruang kelas berbasis web yang dapat digunakan untuk melakukan pengajuan peminjaman ruang kelas dan pengelolaan peminjaman ruang kelas itu sendiri. Dibuat sebagai alternatif dari mekanisme peminjaman ruang kelas secara manual yang umumnya menggunakan media kertas untuk melakukan pengajuan peminjaman.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Fitur Utama:
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- Melihat daftar ruangan yang tersedia beserta detailnya.
+- Melihat ketersediaan ruangan dalam kalender interaktif.
+- Mengajukan permohonan peminjaman ruangan dengan mengisi formulir.
+- Mengelola dan membatalkan permohonan peminjaman.
+- Mengirim notifikasi kepada pengguna terkait status peminjaman.
+- Menerapkan otentikasi pengguna untuk mengakses fitur peminjaman ruangan.
+  
+## Informaasi pendukung
+Pastikan ketika ingin menggunakan kode sumber (source code) ini, terlebih dahulu import database yang ada pada direktori assets > db, kemudian silakan pilih salah satu database yang tersedia.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+Terdapat beberapa level pengguna (user) yang dapat mengakses aplikasi ini, yakni:
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+- Bagian Umum (setara Super Admin yang memiliki akses penuh)
+  - username: umum
+  - password: login.admin
+- Kepala Bagian/Kaprodi (admin dengan akses terbatas, hanya verifikasi peminjaman)
+  - username: kabag
+  - password: login.admin
+- Biro Pendidikan (admin dengan akses terbatas, hanya verifikasi peminjaman)
+  - username: biropend
+  - password: login.admin
+- Pengguna Ruangan/User (pengguna biasa)
+  - username: user
+  - password: login.user
 
-## Important Change with index.php
+## Tampilan Aplikasi
+*Tampilan login User*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/6b9e24b1-fdc7-4485-8635-65852ed23a96)
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+*Tampilan Register User*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/213dbccd-99fc-4ea6-abde-77de2a851e17)
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+*Dhasboard User*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/75acac3b-1aae-448e-b57d-3e7a8f18d2fa)
 
-**Please** read the user guide for a better explanation of how CI4 works!
+*form Booking*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/d34ba00e-401c-4dd9-88b4-abda0e826b14)
 
-## Repository Management
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+*Tampilan Daftar Ruangan*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/b2e9a84f-3841-4f51-87a6-e7ec8480d9eb)
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
 
-## Contributing
+*Tampilan peminjaman Saya*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/ec5b4298-be47-4dee-9e18-d1f169dc8b07)
 
-We welcome contributions from the community.
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+*Tampilan Profil User*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/f200b02a-a35b-4b30-895a-37c30af89782)
 
-## Server Requirements
+*Tampilan login Admin*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/5a941835-f7b0-4453-b793-7dc0d3dc70aa)
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+*Tampilan login Admin*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/c61fd812-9f05-44d2-b605-fd138bc80c96)
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+**
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/a647b977-ed21-4131-9d01-6e40ae1e85df)
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+*tampilan kelola user*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/aea3e7e7-018c-409a-9616-cb42149a1f36)
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+*tampilan kelola ruang*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/c55c315f-6d66-4dcb-a7c6-85b9d5ca8293)
+
+*form tambah data ruang*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/207ac7de-e687-463e-af89-a263f4b55c6c)
+
+*tampilan data peminjaman*
+![image](https://github.com/indahles56/Peminjaman-Ruangan/assets/119774568/9f4e0a4a-a0c7-4cc9-a366-44c1e6bab83f)
+
